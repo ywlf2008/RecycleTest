@@ -40,7 +40,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tv.setText(mDatas.get(position));
-        holder.itemView.setTag(position + 1 + "");
+        holder.itemView.setTag(position);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public void onClick(View view) {
         if (mOnItemClickListener != null) {
             //注意这里使用getTag方法获取数据
-            mOnItemClickListener.onItemClick(view, (String) view.getTag());
+            mOnItemClickListener.onItemClick(view, (int) view.getTag());
         }
     }
 
