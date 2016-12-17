@@ -39,18 +39,19 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mRecyclerView.setLayoutManager(manager);
-        mAdapter = new MyRecyclerViewAdapter(this,mDatas);
+        mAdapter = new MyRecyclerViewAdapter(this, mDatas);
         mAdapter.setOnRecyclerViewItemClickListener(new OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, String position) {
-                ContentFragment fragment = ContentFragment.newInstance("第"+position+"个fragment");
-                fm.beginTransaction().replace(R.id.content_layout,fragment).commit();
+                ContentFragment fragment = ContentFragment.newInstance("第" + position + "个fragment");
+                fm.beginTransaction().replace(R.id.content_layout, fragment).commit();
             }
         });
         mRecyclerView.setAdapter(mAdapter);
         fm = getFragmentManager();
         Fragment fragment = new ContentFragment();
-        fm.beginTransaction().replace(R.id.content_layout,fragment).commit();
+        fm.beginTransaction().replace(R.id.content_layout, fragment).commit();
+
     }
 
     private void initData() {
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.water)
     public void onClick() {
-        startActivity(new Intent(MainActivity.this,WaterfallActivity.class));
+        startActivity(new Intent(MainActivity.this, WaterfallActivity.class));
     }
 
 }
