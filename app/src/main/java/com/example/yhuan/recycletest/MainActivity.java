@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mRecyclerView.setLayoutManager(manager);
         mAdapter = new MyRecyclerViewAdapter(this,mDatas);
-        mAdapter.setMyItemListener(new OnRecyclerViewItemClickListener() {
+        mAdapter.setOnRecyclerViewItemClickListener(new OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, String position) {
                 ContentFragment fragment = ContentFragment.newInstance("第"+position+"个fragment");

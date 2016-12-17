@@ -13,7 +13,7 @@ import java.util.List;
  * Created by yhuan on 2016/12/17.
  */
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> implements View.OnClickListener{
+public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> implements View.OnClickListener {
     private Context mContext;
     private List<String> mDatas;
     private OnRecyclerViewItemClickListener mOnItemClickListener;
@@ -33,18 +33,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         return holder;
     }
 
-    public void setMyItemListener(OnRecyclerViewItemClickListener listener){
-        this.mOnItemClickListener=listener;
-    }
-
-    public void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener listener){
-        this.mOnItemClickListener=listener;
+    public void setOnRecyclerViewItemClickListener(OnRecyclerViewItemClickListener listener) {
+        this.mOnItemClickListener = listener;
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tv.setText(mDatas.get(position));
-        holder.itemView.setTag(position+1+"");
+        holder.itemView.setTag(position + 1 + "");
     }
 
     @Override
@@ -53,15 +49,10 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
     public void onClick(View view) {
         if (mOnItemClickListener != null) {
             //注意这里使用getTag方法获取数据
-            mOnItemClickListener.onItemClick(view,(String)view.getTag());
+            mOnItemClickListener.onItemClick(view, (String) view.getTag());
         }
     }
 
